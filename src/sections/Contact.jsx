@@ -1,61 +1,82 @@
-import { motion } from 'framer-motion';
-import SectionLabel from '../components/SectionLabel';
+import { useRef, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
 
-const Contact = () => (
-  <section id="contact" className="min-h-screen flex flex-col justify-center px-14 md:px-20 py-32 bg-[#0a0a0a]">
-    <SectionLabel label="GET IN TOUCH" />
-    <motion.h2
-      initial={{opacity:0,y:40}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.8}}
-      className="text-[6vw] md:text-[5vw] font-extrabold text-[#C4A882] leading-[1.1] mb-16 max-w-4xl">
-      Available for <span className="text-[#E85D26]">freelance</span> work and full-time <span className="text-[#E85D26]">positions</span>.
-    </motion.h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
-      <div>
-        <motion.div initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.5,delay:0.1}}
-          className="mb-10">
-          <p className="text-xs tracking-[0.3em] uppercase text-[#C4A882] opacity-40 mb-2">EMAIL</p>
-          <a href="mailto:divyanshukr786@gmail.com"
-            className="text-xl font-bold text-[#C4A882] hover:text-[#E85D26] transition-colors duration-300">
-            divyanshukr786@gmail.com
-          </a>
+const PX = 'clamp(24px,6vw,96px)';
+
+export default function Contact() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, amount: 0.1 });
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [sent, setSent] = useState(false);
+
+  const handleSubmit = (e) => { e.preventDefault(); setSent(true); };
+  const inputStyle = { fontFamily:'Space Grotesk,sans-serif', fontSize:'clamp(13px,1.1vw,15px)', color:'#fff', background:'transparent', border:'none', borderBottom:'1px solid #2a2a2a', padding:'12px 0', outline:'none', width:'100%', transition:'border-color 0.3s' };
+
+  return (
+    <section id="contact" ref={ref} className="relative bg-[#0d0d0d] py-32" style={{paddingLeft:PX,paddingRight:PX}}>
+      <motion.p initial={{opacity:0,y:20}} animate={inView?{opacity:1,y:0}:{}} transition={{duration:0.5}}
+        style={{fontFamily:'Space Grotesk,sans-serif',fontSize:'clamp(10px,1vw,12px)',letterSpacing:'0.25em',color:'#666',marginBottom:'1.5rem'}}>
+        GET IN TOUCH
+      </motion.p>
+      <motion.div initial={{opacity:0,x:-40}} animate={inView?{opacity:1,x:0}:{}} transition={{duration:0.7,delay:0.1}}
+        style={{fontFamily:'Bebas Neue,sans-serif',fontSize:'clamp(48px,7vw,100px)',lineHeight:'0.92',marginBottom:'4rem'}}>
+        <span style={{color:'#fff'}}>LET'S MAKE</span><br/>
+        <span style={{color:'#c0522a'}}>SOMETHING GREAT</span>
+      </motion.div>
+      <div className="grid md:grid-cols-2 gap-16">
+        <motion.div initial={{opacity:0,y:30}} animate={inView?{opacity:1,y:0}:{}} transition={{duration:0.6,delay:0.2}}>
+          <div className="mb-8">
+            <div style={{fontFamily:'Space Grotesk,sans-serif',fontSize:'clamp(9px,0.9vw,11px)',letterSpacing:'0.25em',color:'#555',marginBottom:'0.5rem'}}>EMAIL</div>
+            <a href="mailto:divyanshukr786@gmail.com" style={{fontFamily:'Space Grotesk,sans-serif',fontSize:'clamp(13px,1.2vw,16px)',color:'#fff',textDecoration:'none',transition:'color 0.3s'}}
+              onMouseEnter={e=>e.currentTarget.style.color='#c0522a'}
+              onMouseLeave={e=>e.currentTarget.style.color='#fff'}>divyanshukr786@gmail.com</a>
+          </div>
+          <div>
+            <div style={{fontFamily:'Space Grotesk,sans-serif',fontSize:'clamp(9px,0.9vw,11px)',letterSpacing:'0.25em',color:'#555',marginBottom:'0.5rem'}}>LINKEDIN</div>
+            <a href="https://linkedin.com/in/divyanshu-upadhyay-dev" target="_blank" rel="noreferrer"
+              style={{fontFamily:'Space Grotesk,sans-serif',fontSize:'clamp(13px,1.2vw,16px)',color:'#fff',textDecoration:'none',transition:'color 0.3s'}}
+              onMouseEnter={e=>e.currentTarget.style.color='#c0522a'}
+              onMouseLeave={e=>e.currentTarget.style.color='#fff'}>linkedin.com/in/divyanshu-upadhyay-dev</a>
+          </div>
         </motion.div>
-        <motion.div initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.5,delay:0.2}}
-          className="mb-10">
-          <p className="text-xs tracking-[0.3em] uppercase text-[#C4A882] opacity-40 mb-2">LINKEDIN</p>
-          <a href="https://www.linkedin.com/in/divyanshu-upadhyay-dev/" target="_blank" rel="noopener noreferrer"
-            className="text-xl font-bold text-[#C4A882] hover:text-[#E85D26] transition-colors duration-300">
-            linkedin.com/divyanshUpadhyay
-          </a>
-        </motion.div>
-        <motion.div initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.5,delay:0.3}}>
-          <p className="text-xs tracking-[0.3em] uppercase text-[#C4A882] opacity-40 mb-2">GITHUB</p>
-          <a href="https://github.com/div-up" target="_blank" rel="noopener noreferrer"
-            className="text-xl font-bold text-[#C4A882] hover:text-[#E85D26] transition-colors duration-300">
-            github.com/div-up
-          </a>
-        </motion.div>
+        <motion.form onSubmit={handleSubmit} initial={{opacity:0,y:30}} animate={inView?{opacity:1,y:0}:{}} transition={{duration:0.6,delay:0.3}}
+          className="flex flex-col gap-8">
+          {sent ? (
+            <p style={{fontFamily:'Space Grotesk,sans-serif',color:'#c0522a',fontSize:'clamp(14px,1.2vw,16px)',letterSpacing:'0.1em'}}>MESSAGE SENT. I'LL BE IN TOUCH SOON.</p>
+          ) : (
+            <>
+              <div>
+                <input style={inputStyle} placeholder="Your Name" value={form.name} required
+                  onChange={e=>setForm(f=>({...f,name:e.target.value}))}
+                  onFocus={e=>e.target.style.borderColor='#c0522a'}
+                  onBlur={e=>e.target.style.borderColor='#2a2a2a'}/>
+              </div>
+              <div>
+                <input type="email" style={inputStyle} placeholder="Your Email" value={form.email} required
+                  onChange={e=>setForm(f=>({...f,email:e.target.value}))}
+                  onFocus={e=>e.target.style.borderColor='#c0522a'}
+                  onBlur={e=>e.target.style.borderColor='#2a2a2a'}/>
+              </div>
+              <div>
+                <textarea style={{...inputStyle,resize:'none',height:100}} placeholder="Your Message" value={form.message} required
+                  onChange={e=>setForm(f=>({...f,message:e.target.value}))}
+                  onFocus={e=>e.target.style.borderColor='#c0522a'}
+                  onBlur={e=>e.target.style.borderColor='#2a2a2a'}/>
+              </div>
+              <button type="submit"
+                style={{fontFamily:'Space Grotesk,sans-serif',fontSize:'clamp(11px,1vw,13px)',letterSpacing:'0.2em',color:'#fff',border:'1px solid #333',padding:'16px 40px',background:'transparent',cursor:'pointer',transition:'all 0.3s',alignSelf:'flex-start'}}
+                onMouseEnter={e=>{e.currentTarget.style.background='#c0522a';e.currentTarget.style.borderColor='#c0522a';}}
+                onMouseLeave={e=>{e.currentTarget.style.background='transparent';e.currentTarget.style.borderColor='#333';}}
+              >SEND MESSAGE</button>
+            </>
+          )}
+        </motion.form>
       </div>
-      <motion.form initial={{opacity:0,x:40}} whileInView={{opacity:1,x:0}} viewport={{once:true}} transition={{duration:0.7,delay:0.2}}
-        className="flex flex-col gap-6" onSubmit={(e)=>e.preventDefault()}>
-        <div className="border-b border-[#2a2a2a] pb-3">
-          <input type="text" placeholder="Your Name" required
-            className="w-full bg-transparent text-[#C4A882] placeholder-[#C4A882]/30 outline-none text-lg font-medium" />
-        </div>
-        <div className="border-b border-[#2a2a2a] pb-3">
-          <input type="email" placeholder="Your Email" required
-            className="w-full bg-transparent text-[#C4A882] placeholder-[#C4A882]/30 outline-none text-lg font-medium" />
-        </div>
-        <div className="border-b border-[#2a2a2a] pb-3">
-          <textarea placeholder="Your Message" rows={4} required
-            className="w-full bg-transparent text-[#C4A882] placeholder-[#C4A882]/30 outline-none text-lg font-medium resize-none" />
-        </div>
-        <motion.button type="submit"
-          whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-          className="self-start mt-4 px-10 py-4 bg-[#E85D26] text-white text-xs tracking-[0.3em] uppercase font-bold hover:bg-[#d14e1e] transition-colors duration-300">
-          Send Message
-        </motion.button>
-      </motion.form>
-    </div>
-  </section>
-);
-export default Contact;
+      <motion.div initial={{opacity:0}} animate={inView?{opacity:1}:{}} transition={{duration:0.6,delay:0.5}}
+        className="mt-24 pt-8 border-t border-[#1e1e1e] flex flex-col md:flex-row justify-between items-center gap-4">
+        <span style={{fontFamily:'Space Grotesk,sans-serif',fontSize:'clamp(10px,0.9vw,12px)',letterSpacing:'0.2em',color:'#444'}}>© 2024 DIVYANSHU UPADHYAY</span>
+        <span style={{fontFamily:'Space Grotesk,sans-serif',fontSize:'clamp(10px,0.9vw,12px)',letterSpacing:'0.2em',color:'#444'}}>BUILT WITH REACT + TAILWIND</span>
+      </motion.div>
+    </section>
+  );
+}
