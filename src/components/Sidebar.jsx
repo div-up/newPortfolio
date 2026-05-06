@@ -16,7 +16,7 @@ const Sidebar = () => (
     {links.map(({href,label,text}) => (
       <a key={label} href={href} target="_blank" rel="noopener noreferrer"
         aria-label={label}
-        className="text-[10px] font-bold tracking-widest text-[#C4A882] hover:text-[#E85D26] transition-colors duration-300">
+        className="text-[10px] font-bold tracking-widest text-[var(--muted-strong)] hover:text-[var(--accent)] transition-colors duration-300">
         {text}
       </a>
     ))}

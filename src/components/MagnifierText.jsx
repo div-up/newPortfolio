@@ -23,7 +23,7 @@ const MagnifierText = ({ lines }) => {
         <div key={i} className="overflow-hidden">
           <span
             className={`bebas block text-[14vw] sm:text-[12vw] md:text-[9vw] leading-[0.92] uppercase ${
-              line.orange ? 'text-[#E85D26]' : line.muted ? 'text-[#C4A882] opacity-30' : 'text-[#C4A882]'
+              line.orange ? 'text-[var(--accent)]' : line.muted ? 'text-[var(--muted-strong)] opacity-30' : 'text-[var(--muted-strong)]'
             }`}
           >
             {line.text}
@@ -62,7 +62,7 @@ const MagnifierText = ({ lines }) => {
                 fontFamily:'Bebas Neue, sans-serif',
                 fontSize:'clamp(10px, 2.5vw, 20px)',
                 lineHeight:1,
-                color: line.orange ? '#fff' : line.muted ? 'rgba(196,168,130,0.5)' : '#E85D26',
+                color: line.orange ? 'var(--text)' : line.muted ? 'rgba(196,168,130,0.5)' : 'var(--accent)',
                 letterSpacing:'0.05em',
                 textTransform:'uppercase',
               }}>{line.alt || line.text}</span>

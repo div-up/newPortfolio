@@ -1,24 +1,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
+:root {
+  --app-bg: #070707;
+  --text: #f5f5f5;
+  --muted: #ccc;
+  --muted-strong: #aaa;
+  --section-bg: #0d0d0d;
+  --section-border: #1e1e1e;
+  --card-bg: #111111;
+  --card-border: #2a2a2a;
+  --accent: #c0522a;
+  --accent-soft: rgba(192,82,42,0.15);
+  --link: #e5e5e5;
+  --divider: #aaa;
+}
+
+:root[data-theme='light'] {
+  --app-bg: #f4f4f3;
+  --text: #111111;
+  --muted: #5f5f5f;
+  --muted-strong: #666666;
+  --section-bg: #ffffff;
+  --section-border: #d6d6d6;
+  --card-bg: #f7f7f7;
+  --card-border: #d0d0d0;
+  --accent: #c0522a;
+  --accent-soft: rgba(192,82,42,0.12);
+  --link: #111111;
+  --divider: #999999;
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
 
 body {
-  background: #0d0d0d;
-  color: #fff;
-  cursor: none;
+  background: var(--app-bg);
+  color: var(--text);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   font-family: 'Space Grotesk', sans-serif;
 }
 
-::selection { background: #c0522a; color: #fff; }
+::selection { background: var(--accent); color: #fff; }
 
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: #0d0d0d; }
-::-webkit-scrollbar-thumb { background: #2a2a2a; }
-::-webkit-scrollbar-thumb:hover { background: #c0522a; }
+::-webkit-scrollbar-track { background: var(--section-bg); }
+::-webkit-scrollbar-thumb { background: var(--card-border); }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-input::placeholder, textarea::placeholder { color: #444; }
+input::placeholder, textarea::placeholder { color: var(--muted-strong); }

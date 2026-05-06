@@ -6,7 +6,7 @@ const SectionLabel = ({label}) => (
     whileInView={{opacity:1,x:0}}
     viewport={{once:true}}
     transition={{duration:0.5}}
-    className="text-[10px] md:text-xs tracking-[0.4em] uppercase text-[#C4A882] opacity-40 mb-8 md:mb-12 font-medium"
+    className="text-[10px] md:text-xs tracking-[0.4em] uppercase text-[var(--muted)] opacity-40 mb-8 md:mb-12 font-medium"
   >
     {label}
   </motion.p>
