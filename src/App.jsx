@@ -21,7 +21,7 @@ export default function App() {
     <div className="min-h-screen" style={{ background: 'var(--app-bg)', color: 'var(--text)' }}>
       {/* <CustomCursor /> */}
       <Navbar theme={theme} onToggleTheme={toggleTheme} />
-      <main className="space-y-24">
+      <main className="space-y-24 mt-2">
         <Hero />
         <About />
         <Work />
