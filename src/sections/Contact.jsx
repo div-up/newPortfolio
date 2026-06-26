@@ -74,7 +74,7 @@ export default function Contact() {
       </div>
       <motion.div initial={{opacity:0}} animate={inView?{opacity:1}:{}} transition={{duration:0.6,delay:0.5}}
         className="mt-24 pt-8 border-t border-[var(--section-border)] flex flex-col md:flex-row justify-between items-center gap-4">
-        <span style={{fontFamily:'Space Grotesk,sans-serif',fontSize:'clamp(10px,0.9vw,12px)',letterSpacing:'0.2em',color:'var(--muted-strong)'}}>© 2024 DIVYANSHU UPADHYAY</span>
+        <span style={{fontFamily:'Space Grotesk,sans-serif',fontSize:'clamp(10px,0.9vw,12px)',letterSpacing:'0.2em',color:'var(--muted-strong)'}}>© 2026 DIVYANSHU UPADHYAY</span>
         <span style={{fontFamily:'Space Grotesk,sans-serif',fontSize:'clamp(10px,0.9vw,12px)',letterSpacing:'0.2em',color:'var(--muted-strong)'}}>BUILT WITH REACT + TAILWIND</span>
       </motion.div>
     </section>

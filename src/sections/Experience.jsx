@@ -2,7 +2,8 @@ import { motion } from 'framer-motion';
 import SectionLabel from '../components/SectionLabel';
 
 const HISTORY = [
-  { period: 'NOW', title: 'Software Developer (SDE-1)', company: 'Jio Platforms Limited', year: '2024' },
+  { period: 'NOW', title: 'Consultant', company: 'Deloitte', year: '2026' },
+  { period: '2026', title: 'Software Developer (SDE-1)', company: 'Jio Platforms Limited', year: '2023' },
   { period: '2023', title: 'Graduate Engineer Trainee (GET)', company: 'Jio Platforms Limited', year: '2023' },
 ];
 
@@ -12,7 +13,7 @@ const Experience = () => (
     <motion.p
       initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.7}}
       className="text-[4.5vw] md:text-[3.5vw] font-extrabold text-[var(--muted-strong)] leading-[1.15] mb-20 max-w-4xl">
-      Over <span className="text-[var(--accent)]">2 years</span> of experience in frontend & fullstack development, working on scalable apps used by millions.
+      Over <span className="text-[var(--accent)]">2.5 years</span> of experience in frontend & fullstack development, contributing to frontend architecture, performance optimization, and cross-functional product delivery..
     </motion.p>
     <div>
       <p className="text-xs tracking-[0.3em] uppercase text-[var(--muted)] opacity-40 mb-8">HISTORY</p>

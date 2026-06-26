@@ -13,7 +13,7 @@ export default function Hero() {
         DIVYANSHU UPADHYAY
       </motion.p>
       <div style={{ fontFamily: 'Bebas Neue,sans-serif', lineHeight: '0.88', fontSize: 'clamp(72px,13vw,180px)' }}>
-        {[['GREAT', 'var(--text)'], ['STUFF', 'var(--text)'], ['SINCE 2022', 'var(--accent)']].map(([t, c], i) => (
+        {[['GREAT', 'var(--text)'], ['STUFF', 'var(--text)'], ['SINCE 2023', 'var(--accent)']].map(([t, c], i) => (
           <motion.div key={t} style={{ color: c }} initial={{ opacity: 0, x: -60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.15 * i }}>{t}</motion.div>
         ))}
       </div>
