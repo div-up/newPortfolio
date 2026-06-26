@@ -21,7 +21,7 @@ function MagText({ children, color = 'var(--text)' }) {
   );
 }
 
-const STATS = [['2+','YEARS EXPERIENCE'],['5+','PROJECTS BUILT'],['2M+','USERS REACHED'],['10+','TECHNOLOGIES']];
+const STATS = [['2.5+','YEARS EXPERIENCE'],['5+','PROJECTS BUILT'],['2M+','USERS REACHED'],['10+','TECHNOLOGIES']];
 
 export default function About() {
   const ref = useRef(null);
@@ -40,7 +40,7 @@ export default function About() {
           <MagText color="var(--accent)">PASSIONATELY SKILLED</MagText>
         </motion.div>
         <motion.div initial={{ opacity: 0, x: -40 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7, delay: 0.3 }}>
-          <MagText>FULLSTACK DEVELOPER</MagText>
+          <MagText>SOFTWARE ENGINEER</MagText>
         </motion.div>
         <motion.div initial={{ opacity: 0, x: -40 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7, delay: 0.4 }}>
           <MagText>WITH STRONG FOCUS ON</MagText>

@@ -4,8 +4,8 @@ import { motion, useInView } from 'framer-motion';
 const PX = 'clamp(24px,6vw,96px)';
 
 const JOBS = [
-  { num: '01', date: 'SEP 2024 — PRESENT', title: 'SOFTWARE DEVELOPER (SDE-1)', co: 'TOTHENEW', desc: 'Building scalable frontend apps used by millions. Core contributor to Micro-frontend architecture and performance optimization.', tags: ['REACT','MICRO-FE','AZURE','JEST'] },
-  { num: '02', date: 'JUN 2022 — AUG 2024', title: 'JUNIOR DEVELOPER', co: 'FREELANCE', desc: 'Delivered 10+ client projects with React, Node.js, and REST APIs. Focused on clean code and responsive design.', tags: ['REACT','NODE.JS','REST API','TAILWIND'] },
+  { num: '01', date: 'MAR 2026 — PRESENT', title: 'CONSULTANT', co: 'DELOITTE', desc: 'Building scalable business applications and contributing to digital transformation. Working across modern frontend stacks to deliver high-quality, performant solutions for enterprise clients.', tags: ['REACT','MICRO-FE','AZURE','JEST'] },
+  { num: '02', date: 'DEC 2023 — MAR 2026', title: 'SOFTWARE DEVELOPER (SDE-1)', co: 'JIO PLATFORMS LIMITED', desc: 'Built and maintained scalable web applications and partner-facing platforms. Contributed to Micro-frontend architecture, performance optimization, and a shared component library used across products.', tags: ['REACT','TYPESCRIPT','MICRO-FE','JEST'] },
 ];
 
 export default function Work() {
