@@ -3,11 +3,11 @@ import { motion, useInView } from 'framer-motion';
 
 const PX = 'clamp(24px,6vw,96px)';
 
-const CATS = [
-  { name: 'FRONTEND', skills: ['React','Next.js','JavaScript (ES6+)','TypeScript','Tailwind CSS','HTML5/CSS3','Redux'] },
-  { name: 'BACKEND', skills: ['Node.js','Express.js','REST APIs','GraphQL','MongoDB','MySQL','Firebase'] },
-  { name: 'TOOLING', skills: ['Git/GitHub','VS Code','Vite','Webpack','Jest','Azure DevOps','Figma'] },
-  { name: 'CONCEPTS', skills: ['Micro-Frontend','System Design','DSA','OOPS','CI/CD','Agile','Performance Opt.'] },
+const SKILLSETS = [
+  { name: 'FRONTEND', skills: ['React','JavaScript (ES6+)','TypeScript','Tailwind CSS','HTML5/CSS3','Redux'] },
+  { name: 'BACKEND', skills: ['Node.js','Express.js','REST APIs','GraphQL','MongoDB','MySQL'] },
+  { name: 'TOOLING', skills: ['Git/GitHub','VS Code','Vite','Webpack','Azure DevOps','Cursor'] },
+  { name: 'CONCEPTS', skills: ['Micro-Frontend','System Design','OOPS','CI/CD','Agile','Performance Opt.'] },
 ];
 
 export default function Skills() {
@@ -25,7 +25,7 @@ export default function Skills() {
         <span style={{ color: 'var(--accent)' }}>EXPERTISE</span>
       </motion.div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: 'var(--section-border)' }}>
-        {CATS.map((cat, i) => (
+        {SKILLSETS.map((cat, i) => (
           <motion.div key={cat.name}
             initial={{ opacity: 0, y: 40 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
             className="bg-[var(--card-bg)] p-10 group hover:bg-[var(--section-bg)] transition-colors">

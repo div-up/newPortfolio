@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import emailjs from "@emailjs/browser";
 import { motion, useInView } from 'framer-motion';
 
 const PX = 'clamp(24px,6vw,96px)';
@@ -7,9 +8,27 @@ export default function Contact() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.1 });
   const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [sent, setSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
-  const handleSubmit = (e) => { e.preventDefault(); setSent(true); };
+  const handleSubmit = (e) => {
+    emailjs.sendForm(
+      "service_3ht09wb",
+      "template_cuy0a9e",
+      e.target,
+      "eWmklf22qweZEz2Zc"
+    );
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitStatus("success");
+      setForm({ name: "", email: "", message: "" });
+
+      setTimeout(() => setSubmitStatus(null), 5000);
+    }, 1500);
+  };
   const inputStyle = { fontFamily:'Space Grotesk,sans-serif', fontSize:'clamp(13px,1.1vw,15px)', color:'var(--text)', background:'transparent', border:'none', borderBottom:'1px solid var(--card-border)', padding:'12px 0', outline:'none', width:'100%', transition:'border-color 0.3s' };
 
   return (
@@ -41,9 +60,7 @@ export default function Contact() {
         </motion.div>
         <motion.form onSubmit={handleSubmit} initial={{opacity:0,y:30}} animate={inView?{opacity:1,y:0}:{}} transition={{duration:0.6,delay:0.3}}
           className="flex flex-col gap-8">
-          {sent ? (
-            <p style={{fontFamily:'Space Grotesk,sans-serif',color:'var(--accent)',fontSize:'clamp(14px,1.2vw,16px)',letterSpacing:'0.1em'}}>MESSAGE SENT. I'LL BE IN TOUCH SOON.</p>
-          ) : (
+          
             <>
               <div>
                 <input style={inputStyle} placeholder="Your Name" value={form.name} required
@@ -69,7 +86,7 @@ export default function Contact() {
                 onMouseLeave={e=>{e.currentTarget.style.background='transparent';e.currentTarget.style.borderColor='var(--card-border)';e.currentTarget.style.color='var(--text)';}}
               >SEND MESSAGE</button>
             </>
-          )}
+          
         </motion.form>
       </div>
       <motion.div initial={{opacity:0}} animate={inView?{opacity:1}:{}} transition={{duration:0.6,delay:0.5}}

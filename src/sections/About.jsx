@@ -21,7 +21,7 @@ function MagText({ children, color = 'var(--text)' }) {
   );
 }
 
-const STATS = [['2.5+','YEARS EXPERIENCE'],['5+','PROJECTS BUILT'],['2M+','USERS REACHED'],['10+','TECHNOLOGIES']];
+const STATS = [['2.5+','YEARS EXPERIENCE'],['3+','PROJECTS WORKED ON'],['50K+','PARTNERS SERVED'],['10+','TECHNOLOGIES']];
 
 export default function About() {
   const ref = useRef(null);
