@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 
 const Footer = () => (
-  <footer className="px-14 md:px-20 py-12 border-t border-[var(--section-border)] flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-[var(--section-bg)]">
+  <footer className="border-t border-[var(--section-border)] flex flex-col md:flex-row justify-between items-center md:items-center gap-3 text-center md:text-left bg-[var(--section-bg)]"
+    style={{ width: '100%', paddingInline: 'clamp(28px, 8vw, 152px)', paddingBlock: 'clamp(20px, 3vw, 32px)' }}>
     <motion.p initial={{opacity:0}} whileInView={{opacity:1}} viewport={{once:true}}
       className="text-xs tracking-[0.2em] uppercase text-[var(--muted)] opacity-40">
       © 2026 Divyanshu Upadhyay. All rights reserved.

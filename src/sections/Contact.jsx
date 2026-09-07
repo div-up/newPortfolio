@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import emailjs from "@emailjs/browser";
 import { motion, useInView } from 'framer-motion';
 
-const PX = 'clamp(24px,6vw,96px)';
+const PX = 'clamp(28px,8vw,152px)';
 
 export default function Contact() {
   const ref = useRef(null);
@@ -32,7 +32,7 @@ export default function Contact() {
   const inputStyle = { fontFamily:'Space Grotesk,sans-serif', fontSize:'clamp(13px,1.1vw,15px)', color:'var(--text)', background:'transparent', border:'none', borderBottom:'1px solid var(--card-border)', padding:'12px 0', outline:'none', width:'100%', transition:'border-color 0.3s' };
 
   return (
-    <section id="contact" ref={ref} className="relative py-32" style={{paddingLeft:PX,paddingRight:PX,background:'var(--section-bg)'}}>
+    <section id="contact" ref={ref} className="relative py-32" style={{paddingLeft:PX,paddingRight:PX,background:'var(--section-alt)'}}>
       <motion.p initial={{opacity:0,y:20}} animate={inView?{opacity:1,y:0}:{}} transition={{duration:0.5}}
         style={{fontFamily:'Space Grotesk,sans-serif',fontSize:'clamp(10px,1vw,12px)',letterSpacing:'0.25em',color:'var(--muted)',marginBottom:'1.5rem'}}>
         GET IN TOUCH
@@ -89,11 +89,6 @@ export default function Contact() {
           
         </motion.form>
       </div>
-      <motion.div initial={{opacity:0}} animate={inView?{opacity:1}:{}} transition={{duration:0.6,delay:0.5}}
-        className="mt-24 pt-8 border-t border-[var(--section-border)] flex flex-col md:flex-row justify-between items-center gap-4">
-        <span style={{fontFamily:'Space Grotesk,sans-serif',fontSize:'clamp(10px,0.9vw,12px)',letterSpacing:'0.2em',color:'var(--muted-strong)'}}>© 2026 DIVYANSHU UPADHYAY</span>
-        <span style={{fontFamily:'Space Grotesk,sans-serif',fontSize:'clamp(10px,0.9vw,12px)',letterSpacing:'0.2em',color:'var(--muted-strong)'}}>BUILT WITH REACT + TAILWIND</span>
-      </motion.div>
     </section>
   );
 }

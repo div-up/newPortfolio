@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
-const PX = 'clamp(24px,6vw,96px)';
+const PX = 'clamp(28px,8vw,152px)';
 
 const PROJECTS = [
   { num:'01', title:'LOOMNOTES', year:'2024', desc:'Real-time collaborative note editor powered by WebSockets — multiple users, one canvas.', tags:['REACT','SOCKET.IO','EXPRESS','NODE.JS'], link:'#' },

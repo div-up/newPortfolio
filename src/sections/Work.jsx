@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
-const PX = 'clamp(24px,6vw,96px)';
+const PX = 'clamp(28px,8vw,152px)';
 
 const JOBS = [
   { num: '01', date: 'MAR 2026 — PRESENT', title: 'CONSULTANT', co: 'DELOITTE', desc: 'Building scalable business applications and contributing to digital transformation. Working across modern frontend stacks to deliver high-quality, performant solutions for enterprise clients.', tags: ['REACT','MICRO-FE','AZURE','JEST'] },

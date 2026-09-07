@@ -1,25 +1,7 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
-const PX = 'clamp(24px,6vw,96px)';
-
-function MagText({ children, color = 'var(--text)' }) {
-  const [pos, setPos] = useState({ x: 0, y: 0, visible: false });
-  const ref = useRef(null);
-  const handleMove = (e) => {
-    const r = ref.current.getBoundingClientRect();
-    setPos({ x: e.clientX - r.left, y: e.clientY - r.top, visible: true });
-  };
-  return (
-    <span ref={ref} style={{ position: 'relative', display: 'inline-block', cursor: 'crosshair', overflow: 'hidden' }}
-      onMouseMove={handleMove} onMouseLeave={() => setPos((p) => ({ ...p, visible: false }))}>
-      <span style={{ color, fontFamily: 'Bebas Neue,sans-serif' }}>{children}</span>
-      {pos.visible && (
-        <span style={{ position: 'absolute', left: pos.x - 40, top: pos.y - 40, width: 80, height: 80, borderRadius: '50%', background: 'var(--accent-soft)', border: '1px solid var(--accent)', pointerEvents: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', backdropFilter: 'blur(0px) brightness(1.4)' }} />
-      )}
-    </span>
-  );
-}
+const PX = 'clamp(28px,8vw,152px)';
 
 const STATS = [['2.5+','YEARS EXPERIENCE'],['3+','PROJECTS WORKED ON'],['50K+','PARTNERS SERVED'],['10+','TECHNOLOGIES']];
 
@@ -27,29 +9,29 @@ export default function About() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.15 });
   return (
-    <section id="about" ref={ref} className="relative py-32" style={{ paddingLeft: PX, paddingRight: PX, background: 'var(--section-bg)' }}>
+    <section id="about" ref={ref} className="relative py-32" style={{ paddingLeft: PX, paddingRight: PX, background: 'var(--section-alt)' }}>
       <motion.p initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
         style={{ fontFamily: 'Space Grotesk,sans-serif', fontSize: 'clamp(10px,1vw,12px)', letterSpacing: '0.25em', color: 'var(--muted)', marginBottom: '1.5rem' }}>
         ABOUT ME
       </motion.p>
       <div style={{ fontFamily: 'Bebas Neue,sans-serif', fontSize: 'clamp(48px,7vw,100px)', lineHeight: '0.92', marginBottom: '3rem' }}>
         <motion.div initial={{ opacity: 0, x: -40 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7, delay: 0.1 }}>
-          <MagText>I'M A</MagText>
+          <span>I'M A</span>
         </motion.div>
         <motion.div initial={{ opacity: 0, x: -40 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7, delay: 0.2 }}>
-          <MagText color="var(--accent)">PASSIONATELY SKILLED</MagText>
+          <span style={{ color: 'var(--accent)' }}>PASSIONATELY SKILLED</span>
         </motion.div>
         <motion.div initial={{ opacity: 0, x: -40 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7, delay: 0.3 }}>
-          <MagText>SOFTWARE ENGINEER</MagText>
+          <span>SOFTWARE ENGINEER</span>
         </motion.div>
         <motion.div initial={{ opacity: 0, x: -40 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7, delay: 0.4 }}>
-          <MagText>WITH STRONG FOCUS ON</MagText>
+          <span>WITH STRONG FOCUS ON</span>
         </motion.div>
         <motion.div initial={{ opacity: 0, x: -40 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7, delay: 0.5 }}>
-          <MagText color="var(--accent)">HIGH QUALITY &amp; IMPACTFUL</MagText>
+          <span style={{ color: 'var(--accent)' }}>HIGH QUALITY &amp; IMPACTFUL</span>
         </motion.div>
         <motion.div initial={{ opacity: 0, x: -40 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7, delay: 0.6 }}>
-          <MagText>DIGITAL EXPERIENCES.</MagText>
+          <span>DIGITAL EXPERIENCES.</span>
         </motion.div>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mt-20">
