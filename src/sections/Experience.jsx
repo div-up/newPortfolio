@@ -1,34 +1,63 @@
-import { motion } from 'framer-motion';
+import Reveal from '../components/Reveal';
+import SectionHeading from '../components/SectionHeading';
 import SectionLabel from '../components/SectionLabel';
 
-const HISTORY = [
-  { period: 'NOW', title: 'Consultant', company: 'Deloitte', year: '2026' },
-  { period: '2026', title: 'Software Developer (SDE-1)', company: 'Jio Platforms Limited', year: '2023' },
-  { period: '2023', title: 'Graduate Engineer Trainee (GET)', company: 'Jio Platforms Limited', year: '2023' },
+const JOBS = [
+  {
+    num: '01',
+    date: 'MAR 2026 — PRESENT',
+    title: 'CONSULTANT',
+    co: 'DELOITTE',
+    desc: 'Building scalable business applications and contributing to digital transformation. Working across modern frontend stacks to deliver high-quality, performant solutions for enterprise clients.',
+    tags: ['REACT', 'MICRO-FE', 'AZURE', 'JEST'],
+  },
+  {
+    num: '02',
+    date: 'DEC 2023 — MAR 2026',
+    title: 'SOFTWARE DEVELOPER (SDE-1)',
+    co: 'JIO PLATFORMS LIMITED',
+    desc: 'Built and maintained scalable web applications and partner-facing platforms. Contributed to Micro-frontend architecture, performance optimization, and a shared component library used across products.',
+    tags: ['REACT', 'TYPESCRIPT', 'MICRO-FE', 'JEST'],
+  },
 ];
 
-const Experience = () => (
-  <section id="experience" className="min-h-screen flex flex-col justify-center px-14 md:px-20 py-32" style={{ background: 'var(--section-bg)' }}>
-    <SectionLabel label="EXPERIENCE" />
-    <motion.p
-      initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.7}}
-      className="text-[4.5vw] md:text-[3.5vw] font-extrabold text-[var(--muted-strong)] leading-[1.15] mb-20 max-w-4xl">
-      Over <span className="text-[var(--accent)]">2.5 years</span> of experience in frontend & fullstack development, contributing to frontend architecture, performance optimization, and cross-functional product delivery..
-    </motion.p>
-    <div>
-      <p className="text-xs tracking-[0.3em] uppercase text-[var(--muted)] opacity-40 mb-8">HISTORY</p>
-      {HISTORY.map((item, i) => (
-        <motion.div key={i}
-          initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.5,delay:i*0.15}}
-          className="border-b border-[var(--section-border)] py-6 grid grid-cols-3 gap-4 group hover:border-[var(--accent)] transition-colors duration-300">
-          <span className="text-[var(--muted-strong)] opacity-50 font-bold text-lg">{item.period}</span>
-          <div>
-            <p className="text-[var(--muted-strong)] font-bold text-xl group-hover:text-[var(--text)] transition-colors duration-200">{item.title}</p>
-            <p className="text-[var(--muted-strong)] opacity-50 text-sm mt-1">{item.company}</p>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  </section>
-);
-export default Experience;
+export default function Work() {
+  return (
+    <section id="work" className="section">
+      <SectionLabel label="WORK EXPERIENCE" />
+
+      <SectionHeading accent="MADE IMPACT">
+        WHERE I'VE
+      </SectionHeading>
+
+      <div className="work-list">
+        {JOBS.map((job, index) => (
+          <Reveal key={job.num} delay={0.15 + index * 0.1}>
+            <article className="work-item">
+              <div>
+                <div className="work-number">{job.num}</div>
+                <div className="eyebrow">{job.date}</div>
+              </div>
+
+              <div className="work-content">
+                <div className="work-title">{job.title}</div>
+                <div className="work-company">{job.co}</div>
+                <div className="work-description">{job.desc}</div>
+
+                <div className="tag-list">
+                  {job.tags.map((tag) => (
+                    <span key={tag} className="tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          </Reveal>
+        ))}
+
+        <div className="list-end" />
+      </div>
+    </section>
+  );
+}
