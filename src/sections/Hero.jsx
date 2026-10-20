@@ -1,13 +1,15 @@
 import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin  } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
 
 const LINKS = [
-  { label: 'GH', href: 'https://github.com/div-up' },
+  { label: <FaGithub />, href: 'https://github.com/div-up' },
   {
-    label: 'LI',
+    label: <FaLinkedin />,
     href: 'https://linkedin.com/in/divyanshu-upadhyay-dev',
   },
   {
-    label: '@',
+    label: <SiGmail />,
     href: 'mailto:divyanshukr786@gmail.com',
   },
 ];

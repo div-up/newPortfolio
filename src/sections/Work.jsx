@@ -12,7 +12,7 @@ export default function Work() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.15 });
   return (
-    <section id="work" ref={ref} className="relative py-32" style={{ paddingLeft: PX, paddingRight: PX, background: 'var(--section-bg)' }}>
+    <section id="work"  ref={ref} className="section relative py-32" style={{ paddingLeft: PX, paddingRight: PX, background: 'var(--section-bg)' }}>
       <motion.p initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
         style={{ fontFamily: 'Space Grotesk,sans-serif', fontSize: 'clamp(10px,1vw,12px)', letterSpacing: '0.25em', color: 'var(--muted)', marginBottom: '1.5rem' }}>
         WORK EXPERIENCE

@@ -73,7 +73,7 @@ export default function Projects() {
           </Reveal>
         ))}
 
-        <div className="list-end" />
+        <div/>
       </div>
     </section>
   );

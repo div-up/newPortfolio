@@ -97,7 +97,7 @@ a {
 
 .section {
   position: relative;
-  padding: clamp(64px, 8vw, 128px) var(--page-x);
+  padding: clamp(24px, 4vw, 64px) var(--page-x);
   background: var(--section-bg);
   border-top: 1px solid var(--section-border);
   border-bottom: 1px solid
@@ -550,9 +550,9 @@ a {
 
 .hero-label {
   position: relative;
-  margin-bottom: 1.5rem;
+  margin: 1rem 0rem;
   color: var(--muted);
-  font-size: clamp(10px, 1vw, 12px);
+  font-size: clamp(10px, 2vw, 14px);
   letter-spacing: 0.25em;
 }
 
@@ -660,11 +660,9 @@ a {
 
 .hero-links a {
   color: var(--muted);
-  font-size: 10px;
   letter-spacing: 0.2em;
   text-decoration: none;
   writing-mode: vertical-rl;
-  transform: rotate(180deg);
   transition: color 0.3s ease;
 }
 
